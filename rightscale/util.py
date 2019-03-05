@@ -12,7 +12,7 @@ _config = None
 class HookList(list):
     def __init__(self, *args, **kwargs):
         super(HookList, self).__init__(*args)
-        for k, v in kwargs.items():
+        for k, v in list(kwargs.items()):
             setattr(self, k, v)
 
 
