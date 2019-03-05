@@ -1,5 +1,5 @@
 import os.path
-import ConfigParser
+import configparser
 
 CFG_USER_RC = '.rightscalerc'
 CFG_SECTION_OAUTH = 'OAuth'
@@ -23,7 +23,7 @@ class HookDict(dict):
 def get_config():
     global _config
     if not _config:
-        _config = ConfigParser.SafeConfigParser()
+        _config = configparser.ConfigParser()
 
         # set up some defaults - too bad only newer pythons know how to do this
         # more gracefully:
