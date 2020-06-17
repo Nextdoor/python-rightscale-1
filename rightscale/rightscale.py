@@ -163,7 +163,7 @@ class ResourceCollection(object):
             if not template:
                 continue
             method = get_resource_method(name, template)
-            setattr(self, name, types.MethodType(method, self, self.__class__))
+            setattr(self, name, types.MethodType(method, self))
 
 
 class RightScale(Resource):
