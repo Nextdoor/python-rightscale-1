@@ -99,7 +99,7 @@ def run_script_on_server(
             'right_script_href': script.href,
             }
     if inputs:
-        for k, v in inputs.items():
+        for k, v in list(inputs.items()):
             data['inputs[%s]' % k] = 'text:' + v
     response = api.client.post(path, data=data)
     status_path = response.headers['location']

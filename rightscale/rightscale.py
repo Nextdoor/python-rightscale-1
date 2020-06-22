@@ -126,12 +126,12 @@ class Resource(object):
 
             collection_actions = COLLECTIONS.get(self.content_type, {})
             self.collection_actions = collection_actions
-            for name, action in collection_actions.iteritems():
+            for name, action in collection_actions.items():
                 if action is None and name in _links:
                     del _links[name]
                     continue
                 if name not in _links:
-                    _links[unicode(name)] = unicode(
+                    _links[str(name)] = str(
                             '%s/%s' % (self.path, name)
                             )
 
@@ -139,7 +139,7 @@ class Resource(object):
         return self._links
 
     def __dir__(self):
-        return self.links.keys()
+        return list(self.links.keys())
 
     def __getattr__(self, name):
         path = self.links.get(name)
@@ -159,11 +159,11 @@ class ResourceCollection(object):
     def __init__(self, path, client, actions):
         self.path = path
         self.client = client
-        for name, template in actions.items():
+        for name, template in list(actions.items()):
             if not template:
                 continue
             method = get_resource_method(name, template)
-            setattr(self, name, types.MethodType(method, self, self.__class__))
+            setattr(self, name, types.MethodType(method, self))
 
 
 class RightScale(Resource):

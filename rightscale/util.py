@@ -1,5 +1,5 @@
 import os.path
-import ConfigParser
+import configparser
 
 CFG_USER_RC = '.rightscalerc'
 CFG_SECTION_OAUTH = 'OAuth'
@@ -12,7 +12,7 @@ _config = None
 class HookList(list):
     def __init__(self, *args, **kwargs):
         super(HookList, self).__init__(*args)
-        for k, v in kwargs.items():
+        for k, v in list(kwargs.items()):
             setattr(self, k, v)
 
 
@@ -23,7 +23,7 @@ class HookDict(dict):
 def get_config():
     global _config
     if not _config:
-        _config = ConfigParser.SafeConfigParser()
+        _config = configparser.ConfigParser()
 
         # set up some defaults - too bad only newer pythons know how to do this
         # more gracefully:
