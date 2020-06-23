@@ -306,9 +306,19 @@ ROOT_COLLECTIONS = {
             },
 
         'right_scripts': {
-            'create': None,
-            'update': None,
-            'destroy': None,
+            'create': {
+                'http_method': 'post',
+                },
+            'commit': {
+                'http_method': 'post',
+                'extra_path': '/%(res_id)s/commit',
+                },
+            'update': {
+                'http_method': 'put',
+                },
+            'destroy': {
+                'http_method': 'delete',
+                },
             },
 
         # route_tables uses defaults
