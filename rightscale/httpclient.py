@@ -67,7 +67,7 @@ class HTTPClient(object):
         # keep track of when our auth token expires
         self.oauth_path = oauth_path
         self.refresh_token = refresh_token
-        self.auth_expires_at = None
+        self.auth_expires_at = 0
 
     def login(self):
         """
