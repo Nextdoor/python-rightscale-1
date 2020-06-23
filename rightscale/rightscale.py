@@ -125,7 +125,7 @@ class Resource(object):
 
             collection_actions = COLLECTIONS.get(self.content_type, {})
             self.collection_actions = collection_actions
-            for name, action in collection_actions.items():
+            for name, action in list(collection_actions.items()):
                 if action is None and name in _links:
                     del _links[name]
                     continue
