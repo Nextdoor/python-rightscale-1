@@ -1,17 +1,14 @@
 language: python
 python:
 - '3.7'
-sudo: false
 script: /bin/true
 deploy:
-  matrix:
-  - provider: pypi
-    user: __token__
-    on:
-      tags: true
-      python: '3.7'
-      all_branches: true
-      condition: "$TRAVIS_TAG =~ ^v[0-9]+.[0-9]+.[0-9]+[a-z]?$"
-      repo: Nextdoor/python-rightscale
+  provider: pypi
+  user: __token__
+  on:
+    tags: true
+    python: '3.7'
+    condition: "$TRAVIS_TAG =~ ^v[0-9]+.[0-9]+.[0-9]+[a-z]?$"
+    repo: Nextdoor/python-rightscale-1
   password:
     secure: anOZMC328MYJrtRXtxxJiqyt1bUfduloBgICTd41r6UiSBo3qM/fpCO1OxWRKSn+x3how88DoGByI/Ie8tB7hO2RNVYANNNcAqSfyoObz18ir4N1za1ynYmmIomQQfmbm5e0Ht3moSaZXqhYQ05f0rm9mAc6PSZK1ZmrR3ht+ACZgtAW/IgjuIeDUdsKi/LTzQikJYSJ1wqVUX6KNqqLMfyy2tVycy16NtciQkRqSpQo+V+VBDaYgw2qKuPY1l1jK2kNMpMr/ca2ybFszccbvfC8pz6sz0vbdmfMfPCkXLM2zfdFqhYs+2e0QZELud7Q1QEUuuALoj4vG3Ml8a7kBdKeUhcPQcY3R1QamxLCN///TQFO15d1VEtHvWaxyHWibveSp8095JXO6XD9L2TU3Qyv0kxX77AR7JLDgWQTGu6FpOq5guGBX5XV0TvuZw7eG3YnwdD2eu/BOclxPcGueUOr/8ohs4IzTVCCj3P+veIWXqJ9OQ4fn/K47BWXpKnD57fp0pRnu4ZC2IT8YmDw2mnuyUOsI6hAsdtVTVup3dAiYqgsyK0FoXu7aEWpndRazJZJo6WJAqMpkpyrCOWxf+ssZeslraEVStr6c3j9TsBIqlzKUnltjujo7qJNgdqxkaC3gKMOTXK3E0yT9Lh448JO7x3Kb3q+l7r+P3lagxM=
